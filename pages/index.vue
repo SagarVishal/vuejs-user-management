@@ -46,7 +46,7 @@
               "
               >Edit</b-button
             >
-            <b-button variant="danger">Delete</b-button>
+            <b-button variant="danger" @click="onDelete(item.id)">Delete</b-button>
           </td>
         </tr>
       </tbody>
@@ -126,6 +126,9 @@
         </div>
       </form>
     </b-modal>
+    <b-modal id="delete" ref="Delete" title="Delete User" @ok="deleteUser">
+      Are you sure you want to delete this user?
+    </b-modal>
   </b-card>
 </template>
 
@@ -138,6 +141,7 @@ export default {
     return {
       form: {},
       userList: this.$store.getters.userList,
+      deleteId: '',
     }
   },
   methods: {
@@ -146,6 +150,16 @@ export default {
       this.form.activate = 1
       await this.$store.dispatch('createUserList', this.form).then(() => {
         this.$refs.Create.hide()
+        this.$router.go()
+      })
+    },
+    onDelete(id) {
+      this.deleteId = id
+      this.$refs.Delete.show()
+    },
+    async deleteUser() {
+      await this.$store.dispatch('deleteUser', this.deleteId).then(() => {
+        this.$refs.Delete.hide()
         this.$router.go()
       })
     },

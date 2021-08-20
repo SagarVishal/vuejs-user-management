@@ -45,11 +45,18 @@ export const actions = {
         return response
       })
   },
-  editUser({commit}, {id, data}){
+  editUser({ commit }, { id, data }) {
     return this.$axios
-    .$put(`http://localhost:3000/data/${id}`, data)
-    .then((response) => {
-      return response
-    })
-  }
+      .$put(`http://localhost:3000/data/${id}`, data)
+      .then((response) => {
+        return response
+      })
+  },
+  deleteUser({ commit }, id) {
+    return this.$axios
+      .$delete(`http://localhost:3000/data/${id}`)
+      .then((response) => {
+        return response
+      })
+  },
 }

@@ -98,22 +98,6 @@
       "image_url": "http://php.demo4work.com/dev6/practical_api/storage/profile_images/dummy1_1600179130.jfif"
     },
     {
-      "id": "6f30a8ec-1c35-4526-ba9f-10ab959d97e1",
-      "name": "newnuxt",
-      "surname": "newnuxt",
-      "username": "newnuxt",
-      "email": "newnuxt@newnuxt.com",
-      "phone_number": "hhjk",
-      "phone_country_code": "newnuxt",
-      "company": "newnuxt",
-      "activate": 1,
-      "email_verified_at": 1600178852,
-      "image": "dummy1_1600178852.jfif",
-      "created_at": 1600178852,
-      "updated_at": 1600181065,
-      "image_url": "http://php.demo4work.com/dev6/practical_api/storage/profile_images/dummy1_1600178852.jfif"
-    },
-    {
       "id": "ff007abe-1ada-411c-9445-db4f5ef0e5f0",
       "name": "test",
       "surname": "Patil",
