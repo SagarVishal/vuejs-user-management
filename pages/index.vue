@@ -3,10 +3,7 @@
     class="w-100 mb-4"
     header-tag="header"
     header-class="d-flex align-items-center justify-content-between"
-    body-class="custom-body p-5"
-    footer-tag="footer"
-    footer-class="custom-footer bt-1"
-    data-test="service-account"
+    body-class="p-0"
   >
     <template #header>
       <h5 class="mb-0">
@@ -16,7 +13,9 @@
       <b-button variant="primary">Create User</b-button>
     </template>
 
-    <table class="table">
+    <table class="table" 
+      :per-page="perPage"
+      :current-page="currentPage">
       <thead>
         <tr>
           <th scope="col">Name</th>
@@ -28,16 +27,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item,index) in userList" :key="index">
-          <td>{{item.name}}</td>
-          <td>{{item.surname}}</td>
-          <td>{{item.email}}</td>
-          <td>{{item.phone_number}}</td>
-          <td>{{item.activate ? "Activated" : "Disabled"}}</td>
+        <tr v-for="(item, index) in userList" :key="index">
+          <td>{{ item.name }}</td>
+          <td>{{ item.surname }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.phone_number }}</td>
+          <td>{{ item.activate ? 'Activated' : 'Disabled' }}</td>
           <td>
             <b-button variant="success">Edit</b-button>
             <b-button variant="danger">Delete</b-button>
-            </td>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -53,6 +52,6 @@ export default {
     return {
       userList: this.$store.getters.userList.data,
     }
-  },
+  }
 }
 </script>
