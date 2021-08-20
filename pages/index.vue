@@ -32,7 +32,20 @@
           <td>{{ item.phone_number }}</td>
           <td>{{ item.activate ? 'Activated' : 'Disabled' }}</td>
           <td>
-            <b-button variant="success">Edit</b-button>
+            <b-button
+              variant="success"
+              @click="
+                () => {
+                  $router.push({
+                    name: 'id',
+                    params: {
+                      id: item.id,
+                    },
+                  })
+                }
+              "
+              >Edit</b-button
+            >
             <b-button variant="danger">Delete</b-button>
           </td>
         </tr>
@@ -132,7 +145,7 @@ export default {
       this.form.id = Math.floor(1000 + Math.random() * 9000).toString()
       this.form.activate = 1
       await this.$store.dispatch('createUserList', this.form).then(() => {
-        this.$refs.Create.hide();
+        this.$refs.Create.hide()
         this.$router.go()
       })
     },

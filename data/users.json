@@ -2,8 +2,8 @@
   "data": [
     {
       "id": "7d579042-5a34-4b54-bb35-fa8ee07d504c",
-      "name": "demo",
-      "surname": "demo",
+      "name": "demo1",
+      "surname": "demoedited",
       "username": "abc",
       "email": "demo@gmail.com",
       "phone_number": "9409381863",
@@ -14,7 +14,8 @@
       "image": null,
       "created_at": 1629439159,
       "updated_at": 1629439159,
-      "image_url": null
+      "image_url": null,
+      "password": "abc"
     },
     {
       "id": "d755075a-3c55-4e37-9a1f-b65adbe070cd",
