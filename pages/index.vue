@@ -4,6 +4,7 @@
     header-tag="header"
     header-class="d-flex align-items-center justify-content-between"
     body-class="p-0"
+    footer-tag="footer"
   >
     <template #header>
       <h5 class="mb-0">
@@ -13,7 +14,7 @@
       <b-button v-b-modal.Create variant="primary">Create User</b-button>
     </template>
 
-    <table class="table">
+    <!-- <table class="table">
       <thead>
         <tr>
           <th scope="col">Name</th>
@@ -46,11 +47,57 @@
               "
               >Edit</b-button
             >
-            <b-button variant="danger" @click="onDelete(item.id)">Delete</b-button>
+            <b-button variant="danger" @click="onDelete(item.id)"
+              >Delete</b-button
+            >
           </td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
+    <!--  -->
+    <b-table
+      :items="userList"
+      :fields="fields"
+      :current-page="currentPage"
+      :per-page="perPage"
+      :bordered="bordered"
+      :responsive="responsive"
+    >
+    <template #cell(activate)="row">
+      {{ row.item.activate ? 'Activated' : 'Disabled' }}
+    </template>
+      <template #cell(Action)="row">
+        <b-button
+          variant="success"
+          @click="
+            () => {
+              $router.push({
+                name: 'id',
+                params: {
+                  id: row.item.id,
+                },
+              })
+            }
+          "
+          >Edit</b-button
+        >
+        <b-button variant="danger" @click="onDelete(row.item.id)">Delete</b-button>
+      </template>
+    </b-table>
+    <template #footer>
+      <div class="d-flex align-items-center justify-content-center">
+          <b-pagination
+            v-if="totalRows > 0"
+            v-model="currentPage"
+            :total-rows="totalRows"
+            :per-page="perPage"
+            pills
+            align="center"
+            @change="onPageChange"
+          ></b-pagination>
+        </div>
+    </template>
+    <!--  -->
     <b-modal id="Create" ref="Create" title="Create User" hide-footer>
       <form @submit.prevent="onSubmit">
         <b-form-group id="name" label="Name:" label-for="name">
@@ -140,9 +187,36 @@ export default {
   data() {
     return {
       form: {},
+      fields: [
+        {
+          key: 'name',
+        },
+        {
+          key: 'surname',
+        },
+        {
+          key: 'email',
+        },
+        {
+          key: 'phone_number',
+        },
+        {
+          key: 'activate',
+        },
+        {
+          key: 'Action',
+        },
+      ],
       userList: this.$store.getters.userList,
       deleteId: '',
+      currentPage: 1,
+      perPage: 5,
     }
+  },
+  computed:{
+    totalRows() {
+      return this.userList.length;
+    },
   },
   methods: {
     async onSubmit() {

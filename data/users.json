@@ -2,7 +2,7 @@
   "data": [
     {
       "id": "7d579042-5a34-4b54-bb35-fa8ee07d504c",
-      "name": "demo1",
+      "name": "demo1edited",
       "surname": "demoedited",
       "username": "abc",
       "email": "demo@gmail.com",
@@ -19,7 +19,7 @@
     },
     {
       "id": "d755075a-3c55-4e37-9a1f-b65adbe070cd",
-      "name": "test",
+      "name": "test2",
       "surname": "dd",
       "username": "incipientinfo",
       "email": "test@test.com",
@@ -31,7 +31,8 @@
       "image": "images (3)_1629378909.jpeg",
       "created_at": 1629378909,
       "updated_at": 1629378909,
-      "image_url": "http://php.demo4work.com/dev6/practical_api/storage/profile_images/images (3)_1629378909.jpeg"
+      "image_url": "http://php.demo4work.com/dev6/practical_api/storage/profile_images/images (3)_1629378909.jpeg",
+      "password": "abc"
     },
     {
       "id": "42129448-de7a-4289-aff2-43cd701bca0c",
@@ -144,17 +145,6 @@
       "created_at": 1599763317,
       "updated_at": 1599763317,
       "image_url": null
-    },
-    {
-      "name": "abc",
-      "surname": "abc",
-      "email": "abc@gmail.com",
-      "username": "abc",
-      "password": "abc",
-      "company": "abc",
-      "phone_number": "940",
-      "phone_country_code": "91",
-      "id": "7938"
     }
   ]
 }
