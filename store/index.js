@@ -11,19 +11,23 @@ export const mutations = {
 }
 
 export const getters = {
-    userList: (state) => {
-      return state.userData
-    }
+  userList: (state) => {
+    return state.userData
+  },
 }
 
 export const actions = {
-    getUserList({ commit}) {
-    
-        return this.$axios
-          .$get("https://raw.githubusercontent.com/Vishalsag/vuejs-user-management/master/data/users.json")
-          .then((response) => {
-            commit("setUserData", response);    
-            return response;
-          });
-      },
+  getUserList({ commit }) {
+    return this.$axios.$get('http://localhost:3000/data').then((response) => {
+      commit('setUserData', response)
+      return response
+    })
+  },
+  createUserList({ commit }, data) {
+    return this.$axios
+      .$post('http://localhost:3000/data', data)
+      .then((response) => {
+        return response
+      })
+  },
 }

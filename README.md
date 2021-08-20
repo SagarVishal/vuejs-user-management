@@ -15,6 +15,9 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# start json server
+$ json-server --watch ./data/users.json
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
