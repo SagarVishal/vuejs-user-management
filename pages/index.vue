@@ -3,7 +3,7 @@
     class="w-100 mb-4"
     header-tag="header"
     header-class="d-flex align-items-center justify-content-between"
-    body-class="custom-body p-0"
+    body-class="custom-body p-5"
     footer-tag="footer"
     footer-class="custom-footer bt-1"
     data-test="service-account"
@@ -28,13 +28,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>example</td>
-          <td>example</td>
-          <td>example</td>
-          <td>example</td>
-          <td>example</td>
-          <td>example</td>
+        <tr v-for="(item,index) in userList" :key="index">
+          <td>{{item.name}}</td>
+          <td>{{item.surname}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phone_number}}</td>
+          <td>{{item.activate ? "Activated" : "Disabled"}}</td>
+          <td>
+            <b-button variant="success">Edit</b-button>
+            <b-button variant="danger">Delete</b-button>
+            </td>
         </tr>
       </tbody>
     </table>
@@ -48,7 +51,7 @@ export default {
   },
   data() {
     return {
-      userList: this.$store.getters.userList,
+      userList: this.$store.getters.userList.data,
     }
   },
 }
